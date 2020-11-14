@@ -1,7 +1,7 @@
-/* eslint-disable import/prefer-default-export */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ActivityTracker } from '../ActivityTracker';
+import { PageForm } from '../PageForm';
 
 export const PageActivities = () => {
   const [activitiesData, setActivitiesData] = useState();
@@ -15,7 +15,7 @@ export const PageActivities = () => {
         setActivitiesData(data);
         setisLoading(false);
       } catch (error) {
-        setErrors("Sorry we can't any activities");
+        setErrors("Sorry we can't find any activities");
       }
     };
     fetchData();
@@ -27,6 +27,7 @@ export const PageActivities = () => {
       {isLoading && <p>Loading activities...</p>}
       {errors && <p>{errors}</p>}
       {!errors && activitiesData && <ActivityTracker data={activitiesData} />}
+      <PageForm />
     </>
   );
 };
