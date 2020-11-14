@@ -5,25 +5,28 @@ import { ActivityTracker } from '../ActivityTracker';
 
 export const PageActivities = () => {
   const [activitiesData, setActivitiesData] = useState();
+  const [errors, setErrors] = useState();
+  const [isLoading, setisLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get('https://heidan-api.herokuapp.com/activities');
-        console.log(data);
         setActivitiesData(data);
+        setisLoading(false);
       } catch (error) {
-        console.log("Sorry we can't any activities");
+        setErrors("Sorry we can't any activities");
       }
     };
     fetchData();
   }, []);
 
-  console.log({ activitiesData });
   return (
     <>
       <h1>Activities Page</h1>
-      {activitiesData && <ActivityTracker data={activitiesData} />}
+      {isLoading && <p>Loading activities...</p>}
+      {errors && <p>{errors}</p>}
+      {!errors && activitiesData && <ActivityTracker data={activitiesData} />}
     </>
   );
 };

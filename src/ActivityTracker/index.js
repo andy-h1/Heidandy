@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
-import { arrayOf, boolean, shape, string } from 'prop-types';
+import { arrayOf, boolean, number, shape, string } from 'prop-types';
 
 export const ActivityTracker = ({ data }) => (
   <div>
@@ -14,7 +14,7 @@ export const ActivityTracker = ({ data }) => (
             <p>Description: {description}</p>
             <p>Location: {location}</p>
             <p>Cost: {cost}</p>
-            <p>Complete: {complete}</p>
+            <p>Complete: {complete ? 'done' : 'not done'}</p>
           </li>
         );
       })}
@@ -26,9 +26,9 @@ ActivityTracker.propTypes = {
   data: arrayOf(
     shape({
       complete: boolean,
-      cost: string,
+      cost: number,
       description: string,
-      id: string,
+      id: number,
       location: string,
       name: string,
     }),
