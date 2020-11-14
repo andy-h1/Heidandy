@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Button } from '../Button';
 import { Input } from '../Input';
 
@@ -14,10 +15,20 @@ export const PageForm = () => {
     });
   };
 
+  const pushActivity = async (data) => {
+    try {
+      const response = await axios.post('https://heidan-api.herokuapp.com/activity', { ...data, complete: false });
+      console.log({ response });
+    } catch (errors) {
+      // eslint-disable-next-line no-console
+      console.log('ERRORS!');
+    }
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // eslint-disable-next-line no-console
-    console.log({ values });
+    pushActivity(values);
   };
 
   return (
