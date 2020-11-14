@@ -18,6 +18,7 @@ export const PageForm = () => {
   const pushActivity = async (data) => {
     try {
       const response = await axios.post('https://heidan-api.herokuapp.com/activity', { ...data, complete: false });
+      // eslint-disable-next-line no-console
       console.log({ response });
     } catch (errors) {
       // eslint-disable-next-line no-console
@@ -27,7 +28,6 @@ export const PageForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // eslint-disable-next-line no-console
     pushActivity(values);
   };
 
