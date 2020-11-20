@@ -1,17 +1,21 @@
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
 import { arrayOf, boolean, number, shape, string } from 'prop-types';
+import axios from 'axios';
 import { Button } from '../Button';
-
-const handleDelete = (event) => {
-  event.preventDefault();
-};
 
 export const ActivityTracker = ({ data }) => (
   <div>
     <ul>
       {data.map((activity) => {
         const { complete, cost, description, id, location, name } = activity;
+        const handleDelete = async () => {
+          try {
+            await axios.delete(`https://heidan-api.herokuapp.com/activity/${activity.id}`);
+          } catch (error) {
+            <p>Sorry no activity found</p>;
+          }
+        };
 
         return (
           <li key={id}>
