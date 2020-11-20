@@ -1,6 +1,11 @@
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
 import { arrayOf, boolean, number, shape, string } from 'prop-types';
+import { Button } from '../Button';
+
+const handleDelete = (event) => {
+  event.preventDefault();
+};
 
 export const ActivityTracker = ({ data }) => (
   <div>
@@ -15,6 +20,9 @@ export const ActivityTracker = ({ data }) => (
             <p>Location: {location}</p>
             <p>Cost: {cost}</p>
             <p>Complete: {complete ? 'done' : 'not done'}</p>
+            <Button type="button" onClick={handleDelete}>
+              Delete
+            </Button>
           </li>
         );
       })}
