@@ -27,8 +27,8 @@ export const PageActivities = () => {
   return (
     <>
       <h1>Activities Page</h1>
-      {isLoading && <p>Loading activities...</p>}
-      {errors && <p>{errors}</p>}
+      {isLoading && <p data-testid="loadingMessage">Loading activities...</p>}
+      {errors && <p data-testid="errorMessage">{errors}</p>}
       {!errors && activitiesData && <ActivityTracker data={activitiesData} />}
       <PageForm />
     </>

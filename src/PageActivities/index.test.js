@@ -23,4 +23,13 @@ describe('Activity Page', () => {
     const { getByTestId } = render(<PageActivities />);
     await waitFor(() => expect(getByTestId('activityTracker')));
   });
+  it('should initially display loading', async () => {
+    const { getByTestId } = render(<PageActivities />);
+    await waitFor(() => getByTestId('loadingMessage'));
+  });
+  it('should render error message if API throws an error', async () => {
+    axiosMock.get.mockRejectedValue({ error: '404' });
+    const { getByTestId } = render(<PageActivities />);
+    await waitFor(() => getByTestId('errorMessage'));
+  });
 });
