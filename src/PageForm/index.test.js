@@ -7,5 +7,5 @@ describe('PageForm component', () => {
     const { container } = render(<PageForm />);
     expect(container.firstChild).toMatchSnapshot();
   });
-  it.todo('should call api with correct values', () => {});
+  it.todo('should call api with correct values');
 });
