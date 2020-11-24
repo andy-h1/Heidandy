@@ -1,3 +1,11 @@
+import React from 'react';
+import { render } from '@testing-library/jest-dom';
+import { PageForm } from '.';
+
 describe('PageForm component', () => {
-  it.todo('should call api with correct values');
+  it('should render', () => {
+    const { container } = render(<PageForm />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it.todo('should call api with correct values', () => {});
 });

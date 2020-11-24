@@ -8,17 +8,20 @@ export const PageActivities = () => {
   const [errors, setErrors] = useState();
   const [isLoading, setisLoading] = useState(true);
 
+  const fetchData = async () => {
+    try {
+      const { data } = await axios.get('https://heidan-api.herokuapp.com/activities');
+      setActivitiesData(data);
+      setisLoading(false);
+    } catch (error) {
+      setErrors("Sorry we can't find any activities");
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get('https://heidan-api.herokuapp.com/activities');
-        setActivitiesData(data);
-        setisLoading(false);
-      } catch (error) {
-        setErrors("Sorry we can't find any activities");
-      }
-    };
-    fetchData();
+    if (!activitiesData) {
+      fetchData();
+    }
   }, []);
 
   return (

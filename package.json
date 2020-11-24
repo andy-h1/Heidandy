@@ -63,6 +63,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "husky": "^4.3.0",
+    "msw": "^0.22.1",
     "prettier": "^2.1.2",
     "react-is": "^17.0.1"
   },

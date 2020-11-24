@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Button } from '../Button';
 
 export const ActivityTracker = ({ data }) => (
-  <div>
+  <div data-testid="activityTracker">
     <ul>
       {data.map((activity) => {
         const { complete, cost, description, id, location, name } = activity;
