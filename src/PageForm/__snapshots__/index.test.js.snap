@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageForm component should render 1`] = `
+<form>
+  <label
+    for="name"
+  >
+    Name
+    <input
+      class="sc-gsTCUz bmsehX"
+      id="name"
+      name="name"
+      placeholder="name of activity"
+      type="text"
+      value=""
+    />
+  </label>
+  <label
+    for="location"
+  >
+    Location
+    <input
+      class="sc-gsTCUz bmsehX"
+      id="location"
+      name="location"
+      placeholder="location"
+      type="text"
+      value=""
+    />
+  </label>
+  <label
+    for="description"
+  >
+    Description
+    <input
+      class="sc-gsTCUz bmsehX"
+      id="description"
+      name="description"
+      placeholder="description"
+      type="text"
+      value=""
+    />
+  </label>
+  <label
+    for="cost"
+  >
+    Cost
+    <input
+      class="sc-gsTCUz bmsehX"
+      id="cost"
+      name="cost"
+      placeholder="cost"
+      type="text"
+      value=""
+    />
+  </label>
+  <button
+    class="sc-bdfBwQ bNUBxi"
+    type="button"
+  >
+    Submit
+  </button>
+</form>
+`;

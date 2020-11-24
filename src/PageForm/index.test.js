@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
 import { PageForm } from '.';
 
 describe('PageForm component', () => {
