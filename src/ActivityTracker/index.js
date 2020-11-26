@@ -1,10 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
-import { arrayOf, boolean, number, shape, string } from 'prop-types';
+import { arrayOf, boolean, func, number, shape, string } from 'prop-types';
 import axios from 'axios';
 import { Button } from '../Button';
 
-// eslint-disable-next-line react/prop-types
 export const ActivityTracker = ({ fetchData, data }) => (
   <div data-testid="activityTracker">
     <ul>
@@ -37,6 +36,7 @@ export const ActivityTracker = ({ fetchData, data }) => (
 );
 
 ActivityTracker.propTypes = {
+  fetchData: func.isRequired,
   data: arrayOf(
     shape({
       complete: boolean,

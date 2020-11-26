@@ -2,10 +2,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { func } from 'prop-types';
 import { Button } from '../Button';
 import { Input } from '../Input';
 
-// eslint-disable-next-line react/prop-types
 export const PageForm = ({ fetchData }) => {
   const { register, handleSubmit } = useForm();
 
@@ -51,5 +51,6 @@ export const PageForm = ({ fetchData }) => {
   );
 };
 
-// cost,  ref= {register}description, location, name
-// log out values when submitting form
+PageForm.propTypes = {
+  fetchData: func.isRequired,
+};

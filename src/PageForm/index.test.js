@@ -13,7 +13,7 @@ describe('PageForm component', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it.only('should call api with correct values', async () => {
+  it('should call api with correct values', async () => {
     // render the component
     const { getByLabelText, getByText } = render(<PageForm />);
 
