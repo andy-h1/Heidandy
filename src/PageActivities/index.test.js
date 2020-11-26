@@ -1,6 +1,6 @@
 import React from 'react';
 import axiosMock from 'axios';
-import { render, cleanup, waitFor } from '@testing-library/react';
+import { render, cleanup, waitFor, screen } from '@testing-library/react';
 import { PageActivities } from '.';
 
 afterEach(cleanup);
@@ -20,16 +20,25 @@ const mockResponse = [
 describe('Activity Page', () => {
   it('should fetch data successfully from an API', async () => {
     axiosMock.get.mockResolvedValue({ data: mockResponse });
-    const { getByTestId } = render(<PageActivities />);
-    await waitFor(() => expect(getByTestId('activityTracker')));
+
+    render(<PageActivities />);
+
+    await waitFor(() => expect(screen.getByText(`Activity name: ${mockResponse[0].name}`)));
+    screen.getByText(`Description: ${mockResponse[0].description}`);
+    // add all the other shit ^^
   });
+
   it('should initially display loading', async () => {
-    const { getByTestId } = render(<PageActivities />);
-    await waitFor(() => getByTestId('loadingMessage'));
+    render(<PageActivities />);
+
+    await waitFor(() => screen.getByTestId('loadingMessage'));
   });
+
   it('should render error message if API throws an error', async () => {
     axiosMock.get.mockRejectedValue({ error: '404' });
-    const { getByTestId } = render(<PageActivities />);
-    await waitFor(() => getByTestId('errorMessage'));
+
+    render(<PageActivities />);
+
+    await waitFor(() => screen.getByTestId('errorMessage'));
   });
 });

@@ -22,15 +22,15 @@ export const PageActivities = () => {
     if (!activitiesData) {
       fetchData();
     }
-  }, []);
+  }, [activitiesData]);
 
   return (
     <>
       <h1>Activities Page</h1>
       {isLoading && <p data-testid="loadingMessage">Loading activities...</p>}
       {errors && <p data-testid="errorMessage">{errors}</p>}
-      {!errors && activitiesData && <ActivityTracker data={activitiesData} />}
-      <PageForm />
+      {!errors && activitiesData && <ActivityTracker data={activitiesData} fetchData={fetchData} />}
+      <PageForm fetchData={fetchData} />
     </>
   );
 };

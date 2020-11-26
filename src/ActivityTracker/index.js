@@ -4,7 +4,8 @@ import { arrayOf, boolean, number, shape, string } from 'prop-types';
 import axios from 'axios';
 import { Button } from '../Button';
 
-export const ActivityTracker = ({ data }) => (
+// eslint-disable-next-line react/prop-types
+export const ActivityTracker = ({ fetchData, data }) => (
   <div data-testid="activityTracker">
     <ul>
       {data.map((activity) => {
@@ -12,6 +13,7 @@ export const ActivityTracker = ({ data }) => (
         const handleDelete = async () => {
           try {
             await axios.delete(`https://heidan-api.herokuapp.com/activity/${activity.id}`);
+            fetchData();
           } catch (error) {
             <p>Sorry no activity found</p>;
           }
@@ -19,7 +21,7 @@ export const ActivityTracker = ({ data }) => (
 
         return (
           <li key={id}>
-            <p>Activity name:{name}</p>
+            <p>Activity name: {name}</p>
             <p>Description: {description}</p>
             <p>Location: {location}</p>
             <p>Cost: {cost}</p>

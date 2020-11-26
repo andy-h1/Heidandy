@@ -4,8 +4,14 @@ import axios from 'axios';
 import { Button } from '../Button';
 import { Input } from '../Input';
 
-export const PageForm = () => {
-  const [values, setValues] = useState({});
+// eslint-disable-next-line react/prop-types
+export const PageForm = ({ fetchData }) => {
+  const [values, setValues] = useState({
+    name: '',
+    location: '',
+    description: '',
+    cost: '',
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -17,9 +23,15 @@ export const PageForm = () => {
 
   const pushActivity = async (data) => {
     try {
-      const response = await axios.post('https://heidan-api.herokuapp.com/activity', { ...data, complete: false });
+      const response = await axios.post('https://heidan-api.herokuapp.com/activity', {
+        ...data,
+        complete: false,
+        cost: parseInt(values.cost, 10),
+      });
       // eslint-disable-next-line no-console
-      console.log({ response });
+      console.log({ response: response.data });
+
+      fetchData();
     } catch (errors) {
       // eslint-disable-next-line no-console
       console.log('ERRORS!');
@@ -71,7 +83,9 @@ export const PageForm = () => {
         <Input id="cost" value={values.cost} name="cost" type="text" placeholder="cost" onChange={handleChange} />
       </label>
 
-      <Button onClick={handleSubmit}>Submit</Button>
+      <Button data-testid="activityFormSubmitButton" onClick={handleSubmit}>
+        Submit
+      </Button>
     </form>
   );
 };

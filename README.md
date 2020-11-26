@@ -5,3 +5,6 @@ Common Scripts:
 - yarn start run the project locally
 - yarn test run the test suite
 - yarn lint to lint the project
+
+Bugs:
+- PageActivities need to rerender when data has been added/deleted
