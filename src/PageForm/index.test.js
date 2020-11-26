@@ -1,7 +1,7 @@
 import React from 'react';
 import axiosMock from 'axios';
 import userEvent from '@testing-library/user-event';
-import { cleanup, render } from '@testing-library/react';
+import { cleanup, render, waitFor } from '@testing-library/react';
 import { PageForm } from '.';
 
 afterEach(cleanup);
@@ -31,12 +31,14 @@ describe('PageForm component', () => {
     userEvent.click(getByText('Submit'));
 
     // check that API was called
-    expect(axiosMock.post).toHaveBeenCalledWith('https://heidan-api.herokuapp.com/activity', {
-      complete: false,
-      cost: 999,
-      description,
-      location,
-      name,
-    });
+    await waitFor(() =>
+      expect(axiosMock.post).toHaveBeenCalledWith('https://heidan-api.herokuapp.com/activity', {
+        complete: false,
+        cost: 999,
+        description,
+        location,
+        name,
+      }),
+    );
   });
 });
