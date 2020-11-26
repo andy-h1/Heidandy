@@ -12,7 +12,6 @@ exports[`PageForm component should render 1`] = `
       name="name"
       placeholder="name of activity"
       type="text"
-      value=""
     />
   </label>
   <label
@@ -25,7 +24,6 @@ exports[`PageForm component should render 1`] = `
       name="location"
       placeholder="location"
       type="text"
-      value=""
     />
   </label>
   <label
@@ -38,7 +36,6 @@ exports[`PageForm component should render 1`] = `
       name="description"
       placeholder="description"
       type="text"
-      value=""
     />
   </label>
   <label
@@ -50,13 +47,12 @@ exports[`PageForm component should render 1`] = `
       id="cost"
       name="cost"
       placeholder="cost"
-      type="text"
-      value=""
+      type="number"
     />
   </label>
   <button
     class="sc-bdfBwQ bNUBxi"
-    type="button"
+    type="submit"
   >
     Submit
   </button>
