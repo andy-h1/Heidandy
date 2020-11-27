@@ -7,7 +7,14 @@ import { Button } from '../Button';
 import { Input } from '../Input';
 
 export const PageForm = ({ fetchData }) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: {
+      name: '',
+      location: '',
+      description: '',
+      cost: 0,
+    },
+  });
   const [isLoading, setLoading] = useState(false);
 
   const pushActivity = async (data) => {
@@ -21,6 +28,7 @@ export const PageForm = ({ fetchData }) => {
       console.log({ response: response.data });
       setLoading(false);
       fetchData();
+      reset();
     } catch (errors) {
       <p>Sorry there&apos;s an issue with the server. Please try again later</p>;
     }
