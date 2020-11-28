@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Activity Tracker should render 1`] = `
+<div
+  data-testid="activityTracker"
+>
+  <ul>
+    <li>
+      <p>
+        Activity name: 
+        Valorant
+      </p>
+      <p>
+        Description: 
+        Destroying scrubs
+      </p>
+      <p>
+        Location: 
+        Haven
+      </p>
+      <p>
+        Cost: 
+        5000
+      </p>
+      <p>
+        Complete: 
+        not done
+      </p>
+      <button
+        class="sc-bdfBwQ bNUBxi"
+        type="button"
+      >
+        Delete
+      </button>
+    </li>
+    <li>
+      <p>
+        Activity name: 
+        League
+      </p>
+      <p>
+        Description: 
+        Getting destroyed
+      </p>
+      <p>
+        Location: 
+        Summoners
+      </p>
+      <p>
+        Cost: 
+        100
+      </p>
+      <p>
+        Complete: 
+        not done
+      </p>
+      <button
+        class="sc-bdfBwQ bNUBxi"
+        type="button"
+      >
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>
+`;

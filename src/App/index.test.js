@@ -1,10 +1,10 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import App from '.';
 
 describe('App component', () => {
-  it('should render', () => {
+  it('should render', async () => {
     const { container } = render(<App />);
-    expect(container.firstChild).toMatchSnapshot();
+    await waitFor(() => expect(container.firstChild).toMatchSnapshot());
   });
 });

@@ -18,7 +18,7 @@ const mockResponse = [
 ];
 
 describe('Activity Page', () => {
-  it('should fetch data successfully from an API', async () => {
+  it('should render data successfully from the API', async () => {
     axiosMock.get.mockResolvedValue({ data: mockResponse });
 
     render(<PageActivities />);

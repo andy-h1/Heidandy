@@ -29,7 +29,7 @@ export const PageActivities = () => {
       <h1>Activities Page</h1>
       {isLoading && <p data-testid="loadingMessage">Loading activities...</p>}
       {errors && <p data-testid="errorMessage">{errors}</p>}
-      {!errors && activitiesData && <ActivityTracker data={activitiesData} fetchData={fetchData} />}
+      {!errors && activitiesData && <ActivityTracker activities={activitiesData} fetchData={fetchData} />}
       <PageForm fetchData={fetchData} />
     </>
   );
