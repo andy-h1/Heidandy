@@ -16,31 +16,33 @@ export const PageForm = ({ fetchData }) => {
     },
   });
   const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const pushActivity = async (data) => {
+    setLoading(true);
+    setError(false);
+
     try {
-      const response = await axios.post('https://heidan-api.herokuapp.com/activity', {
+      await axios.post('https://heidan-api.herokuapp.com/activity', {
         ...data,
         complete: false,
         cost: parseInt(data.cost, 10),
       });
-      // eslint-disable-next-line no-console
-      console.log({ response: response.data });
       setLoading(false);
       fetchData();
       reset();
     } catch (errors) {
-      <p>Sorry there&apos;s an issue with the server. Please try again later</p>;
+      setError(true);
     }
   };
 
   const onSubmit = (formData) => {
     pushActivity(formData);
-    setLoading(true);
   };
 
   return (
     <>
+      {error && <p>Sorry there&apos;s an issue with the server. Please try again later</p>}
       {isLoading && <p>Sending your data...</p>}
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="name">
